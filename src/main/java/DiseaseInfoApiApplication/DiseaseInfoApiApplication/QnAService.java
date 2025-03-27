@@ -28,9 +28,10 @@ public class QnAService {
     public String getAnswer(String diseaseName,String city) {
         logger.info("Getting answer for disease: {}", diseaseName);
 
-        String prompt = "Provide information about " + diseaseName + " in" + city +", with 10 hospitals details .India, in the following JSON format:\\n" +
+        String prompt = "Provide information about " + diseaseName + " in" + city +" , with 10 hospitals details  in the following JSON format:\\n" +
                 "{\\n" +
                 "  \\\"hospitals\\\": [],\\n" +
+                "\\\"Beds availibility\\\":\\\"give according to above hospitals\\\",\\n"+
                 "  \\\"budget\\\": {\\n" +
                 "    \\\"consultation\\\": \\\"Cost range\\\",\\n" +
                 "    \\\"tests\\\": \\\"Cost range\\\",\\n" +
@@ -40,6 +41,7 @@ public class QnAService {
                 "  \\\"insurance_companies\\\": [],\\n" +
                 "  \\\"cost\\\": \\\"Cost range\\\",\\n" +
                 "  \\\"recovery_time\\\": \\\"Time range\\\"\\n" +
+                "  \\\"precautions\\\" : [],\\n" +
                 "}";
 
         Map<String, Object> requestBody = Map.of(

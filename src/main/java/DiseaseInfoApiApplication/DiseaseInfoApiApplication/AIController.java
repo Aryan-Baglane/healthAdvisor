@@ -23,7 +23,8 @@ public class AIController {
     public ResponseEntity<String> getDiseaseInfoPost(@RequestBody Map<String, String> payload) {
         String diseaseName = payload.get("disease");
         String city = payload.get("city");
-        if ((diseaseName == null) && (city == null) ) {
+
+        if ((diseaseName == null) && (city == null)) {
             return ResponseEntity.badRequest().body("{\"error\": \"Missing 'disease' parameter in request body\"}");
         }
         try {
